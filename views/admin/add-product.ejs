@@ -1,0 +1,32 @@
+<%- include('../includes/head.ejs') %>
+  <link rel="stylesheet" href="/css/form.css">
+<%- include('../includes/middle.ejs') %>
+  <form action="
+  <% if(!editing) { %>
+    /admin/post-add-product
+  <% }else{ %>
+    /admin/post-edit-product
+  <%  } %>
+  " method="POST">
+    <div>
+      <label for="name">Product Name:</label>
+      <input type="text" id="name" name="productName" <% if(editing){ %>value="<%= product.productName %>"<% } %>>
+    </div>
+    <div>
+      <label for="image">Product image:</label>
+      <input type="text" id="image" name="image" <% if(editing){ %>value="<%= product.image %>"<% } %>>
+    </div>
+    <div>
+      <label for="price">Price:</label>
+      <input type="text" id="price" name="price" <% if(editing){ %>value="<%= product.price %>"<% } %>>
+    </div>
+    <button type="submit">
+      <% if(!editing){ %>
+      Add Product
+      <% }else{ %>
+      Edit Product
+      <% } %>
+    </button>
+    <% if(editing) { %><input type="hidden" value="<%= product.id %>" name="id"><% } %>
+  </form>
+<%- include('../includes/foot.ejs') %>

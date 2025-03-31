@@ -1,0 +1,27 @@
+body{
+  font-family: arial;
+  margin: 0;
+  padding: 0;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+a:hover{
+  color: white;
+}
+header{
+  height: 70px;
+  background-color: aqua;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+header a{
+  margin-right:20px ;
+  font-weight: 700;
+}
+.shop-header-link{
+  color: brown;
+}

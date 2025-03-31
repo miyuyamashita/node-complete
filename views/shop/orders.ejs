@@ -1,0 +1,21 @@
+<%- include('../includes/head.ejs') %>
+
+<%- include('../includes/middle.ejs') %>
+  <% if(orders.length > 0) {%>
+    <div class="orders-container">
+      <% orders.forEach(order => { %>
+        <h1>Order ID: <%= order.id %></h1>
+        <% order.products.forEach(product => { %>
+          <div class="products-container">
+            <p>Product Name: <%= product.productName %></p>
+            <img src="<%= product.image %>">
+            <p>Quantity: <%= product.orderItem.quantity %></p>
+          </div>
+        <% }) %>
+        <hr>
+      <% }) %>
+    </div>
+  <% }else{ %>
+    <h1>No Orders</h1>
+  <% } %>
+<%- include('../includes/foot.ejs') %>

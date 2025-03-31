@@ -1,0 +1,22 @@
+<%- include('../includes/head.ejs') %>
+  <link rel="stylesheet" href="/css/product.css">
+<%- include('../includes/middle.ejs') %>
+<% if(products.length <= 0) { %>
+  <h1>No Products</h1>
+<% }else{ %>
+  <div class="products-container">
+    <% products.forEach( product => { %>
+    <div class="product-container">
+      <p class="product-name"><%= product.productName %></p>
+      <hr>
+      <img src="<%= product.image %>" alt="Picture" class="image">
+      <p class="price"><%= product.price %></p>
+      <form action="/shop/post-add-to-cart" method="POST">
+        <input type="hidden" value="<%= product.id %>" name="id">
+        <button type="submit">Add to Cart</button>
+      </form>
+    </div>
+    <% }) %>
+  </div>
+<% } %>
+<%- include('../includes/foot.ejs') %>
